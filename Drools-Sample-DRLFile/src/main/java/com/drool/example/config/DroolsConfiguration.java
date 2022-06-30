@@ -34,6 +34,7 @@ public class DroolsConfiguration {
 
 	public static KnowledgeBuilder knowledgeBuilder(String filename) throws Exception {
 		KnowledgeBuilder builder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+//		builder.add(ResourceFactory.newUrlResource(filename), ResourceType.DRL);
 		builder.add(ResourceFactory.newClassPathResource(filename), ResourceType.DRL);
 		if (builder.hasErrors()) {
 			throw new Exception(String.valueOf(builder.getErrors()));
@@ -44,11 +45,11 @@ public class DroolsConfiguration {
 	@Bean
 	public void knowledgeBase() throws Exception {
 		InternalKnowledgeBase knowledgeBase = KnowledgeBaseFactory.newKnowledgeBase();
-		knowledgeBase.addPackages(knowledgeBuilder("FDInterestRate.drl").getKnowledgePackages());
+		knowledgeBase.addPackages(knowledgeBuilder(hmDrlFileNames.get("tenant1")).getKnowledgePackages());
 		hmKnowledgebase.put("tenant1", knowledgeBase);
 		InternalKnowledgeBase knowledgeBase2 = KnowledgeBaseFactory.newKnowledgeBase();
 
-		knowledgeBase2.addPackages(knowledgeBuilder("AgeFinderRule.drl").getKnowledgePackages());
+		knowledgeBase2.addPackages(knowledgeBuilder(hmDrlFileNames.get("tenant2")).getKnowledgePackages());
 		hmKnowledgebase.put("tenant2", knowledgeBase2);
 
 	}

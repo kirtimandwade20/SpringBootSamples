@@ -16,7 +16,7 @@ end;
 
 rule "Adult"
     when
-        genObject : GenericObject( fields["age"]>18 &&  fields["age"<60  );
+        genObject : GenericObject( fields["age"]>18 &&  fields["age"]<60  );
     then
        genObject.getResults().put("type","adultt");
 end;
