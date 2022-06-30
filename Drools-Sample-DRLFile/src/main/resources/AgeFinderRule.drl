@@ -1,0 +1,23 @@
+import  com.drool.example.domain.GenericObject;
+
+rule "Children"
+    when
+        genObject : GenericObject( fields["age"]>2 && fields["age"] <= 18 );
+    then
+        genObject.getResults().put("type","child");
+end;
+
+rule "Toddler"
+    when
+        genObject : GenericObject( fields["age"]>0 && fields["age"] <= 2 );
+    then
+        genObject.getResults().put("type","toddler");
+end;
+
+rule "Adult"
+    when
+        genObject : GenericObject( fields["age"]>18  );
+    then
+       genObject.getResults().put("type","adult");
+end;
+
