@@ -11,13 +11,13 @@ rule "Toddler"
     when
         genObject : GenericObject( fields["age"]>0 && fields["age"] <= 2 );
     then
-        genObject.getResults().put("type","toddlers");
+        genObject.getResults().put("type","toddler");
 end;
 
 rule "Adult"
     when
         genObject : GenericObject( fields["age"]>18  );
     then
-       genObject.getResults().put("type","adult");
+       genObject.getResults().put("type","adultt");
 end;
 
