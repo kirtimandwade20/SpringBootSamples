@@ -4,7 +4,7 @@ rule "FD Interest Rate for Biti Bank duration more than 1 year and below 2 years
     when
         genObject : GenericObject( fields["bankName"]=="Citi" && fields["durationInYear"] >= 1 && fields["durationInYear"] < 2);
     then
-        genObject.getResults().put("rate","2%");
+        genObject.getResults().put("rate","3%");
 end;
 
 rule "FD Interest Rate for Biti Bank for duration more than or equal to 2 years"
