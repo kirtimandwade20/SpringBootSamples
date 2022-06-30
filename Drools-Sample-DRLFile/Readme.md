@@ -13,8 +13,8 @@ We can also dynamically update the rules using reload API.
 You can directly start the application by executing the DroolsDemoApplication.class or
 
 
-``` Java -jar drools-demo-0.0.1-SNAPSHOT.jar
-
+``` 
+Java -jar drools-demo-0.0.1-SNAPSHOT.jar
 ```
 
 ## Testing
@@ -28,6 +28,7 @@ Request Body:
  "bankName": "Citi",
  "durationInYear": 1
 }
+```
 Result
 
 ```
@@ -42,7 +43,7 @@ Result
 }
 ```
 
-```
+
 Executing rules for "Tenant 2" 
 ```
 Method POST
@@ -51,9 +52,11 @@ Request Body:
 {
  "age": 3
 }
-
 ```
+
+
 Result
+
 ```
 {
     "fields": {
@@ -65,13 +68,14 @@ Result
 }
 ```
 
-Reload Configuraion
+Reload Configuration:
 You can update the configuration by making change in DRL file and then executing following API
 ```
 Method GET
 http://localhost:8080/reload?tenant=tenant2
 ```
 Result
+
 ```
 config for tenant2 updated
 ```
